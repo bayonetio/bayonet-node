@@ -25,18 +25,16 @@ To use this SDK, please make sure:
     ```js
     var bayonet = require('bayonet-js-sdk');
     ```
-  * Create config options, with parameters (mode, api_key).
+  * Create config options, with parameters (api_key).
 
     ```js
     bayonet.configure({
-      'mode': 'sandbox', //sandbox or live
       'api_key': '011RR5BdHEEF2RNSmha42SDQ6sYRL9TM'
     });
     ```
   * You can use environment vars too.
 
     ```sh
-    export MODE=sandbox
     export API_KEY=011RR5BdHEEF2RNSmha42SDQ6sYRL9TM
     ```
   
