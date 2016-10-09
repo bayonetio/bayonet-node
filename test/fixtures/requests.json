@@ -1,16 +1,25 @@
 {
     "invalid_token": "da2da838-6311-4646-805f-2466954b1a11",
     "complete_hard_params": {
-        "channel": "pokemon",
-        "email": "luis@vordem.mx",
+        "channel": "mpos",
+        "email": "luisehk@gmail.com",
         "consumer_name": "Luis Herrada",
+        "cardholder_name": "Luis Herrada",
         "payment_method": "card",
         "card_number": 4111111111111111,
         "transaction_amount": 320,
         "currency_code": "MXN",
-        "transaction_time": 642788460,
+        "transaction_time": 1476012879,
         "coupon": false,
-        "payment_gateway": "braintree"
+        "payment_gateway": "stripe",
+        "shipping_address" : {
+            "address_line_1" : "Calle 123",
+            "address_line_2" : "456",
+            "city" : "Monterrey",
+            "state" : "Nuevo León",
+            "country" : "MX",
+            "zip_code" : "64010"
+        }
     },
     "consult_complete_profile": {
         "channel": "pokemon",
