@@ -37,4 +37,89 @@ To use this SDK, please make sure:
     ```sh
     export BAYONET_API_KEY=011RR5BdHEEF2RNSmha42SDQ6sYRL9TM
     ```
+
+## Usage
+Once you have Bayonet's SDK configured, you can call the three APIs with the following syntax:
+  * Consulting API
   
+    ```js
+    bayonet.api.consulting({
+        "channel": "mpos",
+        "email": "luisehk@gmail.com",
+        "consumer_name": "Luis Herrada",
+        "cardholder_name": "Luis Herrada",
+        "payment_method": "card",
+        "card_number": 4111111111111111,
+        "transaction_amount": 320,
+        "currency_code": "MXN",
+        "transaction_time": 1476012879,
+        "coupon": false,
+        "payment_gateway": "stripe",
+        "shipping_address" : {
+            "address_line_1" : "Calle 123",
+            "address_line_2" : "456",
+            "city" : "Monterrey",
+            "state" : "Nuevo León",
+            "country" : "MX",
+            "zip_code" : "64000"
+        },
+        ...
+    });
+    ```
+  * Feedback API
+  
+    ```js
+    bayonet.api.feedback({
+        "transaction_status": "success",
+        "transaction_id": "uhffytd65rds56yt",
+        ...
+    });
+    ```
+  * Feedback-historical API
+  
+    ```js
+    bayonet.api.feedbackHistorical({
+        "channel": "mpos",
+        "type": "transaction",
+        "email": "david@gmail.com",
+        "consumer_name": "David Gilmour",
+        "payment_method": "card",
+        "card_number": 4929699022445935,
+        "transaction_amount": 500,
+        "currency_code": "USD",
+        "transaction_time": 1423823404,
+        "transaction_status": "bank_decline",
+        "transaction_id": "uhffytd65rds56yt",
+        "coupon": false,
+        "payment_gateway": "stripe",
+        "device_fingerprint": "AF567GHGJJJ87JH",
+        "bank_auth_code": "5353888",
+        "telephone": "5566768423",
+        "expedited_shipping": false,
+        "bank_decline_reason": "stolen_card",
+        "shipping_address": {
+            "address_line_1": "8100 Sunset Boulevard",
+            "address_line_2": "Apt 6B",
+            "city": "San Francisco",
+            "state": "Sunnyvale",
+            "country": "USA",
+            "zip_code": "03257"
+        }
+        ...
+    });
+    ```
+## Success and error handling
+Bayonet's SDK supports [Promises](https://www.promisejs.org/) for success and error handling
+```js
+bayonet.api.consulting({
+    ...
+})
+.then(function (parsedBody) {
+    console.log('Success', parsedBody);
+})
+.catch(function (error) {
+    console.log('Error', error);
+});
+```
+
+For a full list of error codes and their messages, please see the "Integration Specs V 1.0" document provided by the Bayonet team.
