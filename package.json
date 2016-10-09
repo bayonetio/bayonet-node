@@ -1,0 +1,30 @@
+{
+  "name": "bayonet-js-sdk",
+  "version": "1.0.0",
+  "description": "A Javascript SDK for integrating with the Bayonet API v1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vordem/bayonet-js-sdk.git"
+  },
+  "keywords": [
+    "bayonet",
+    "fintech",
+    "ai",
+    "machine",
+    "learning",
+    "fraud",
+    "identity",
+    "verification"
+  ],
+  "author": "luis@vordem.mx",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/vordem/bayonet-js-sdk/issues"
+  },
+  "homepage": "https://github.com/vordem/bayonet-js-sdk#readme"
+}
