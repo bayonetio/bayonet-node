@@ -108,6 +108,7 @@ Once you have Bayonet's SDK configured, you can call the three APIs with the fol
         ...
     });
     ```
+ 
 ## Success and error handling
 Bayonet's SDK supports [Promises](https://www.promisejs.org/) for success and error handling
 ```js
