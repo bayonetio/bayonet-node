@@ -33,3 +33,10 @@ To use this SDK, please make sure:
       'api_key': '011RR5BdHEEF2RNSmha42SDQ6sYRL9TM'
     });
     ```
+  * You can use environment vars too.
+
+    ```sh
+    export MODE=sandbox
+    export API_KEY=011RR5BdHEEF2RNSmha42SDQ6sYRL9TM
+    ```
+  
