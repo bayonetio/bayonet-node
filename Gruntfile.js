@@ -15,13 +15,19 @@ module.exports = function (grunt) {
                     jshintrc: ".jshintrc"
                 }
             }
+        },
+        simplemocha: {
+            all: {
+                src: ['test/**/*.js', '**/*.spec.js']
+            }
         }
     });
 
     // Load grunt tasks from npm packages
     grunt.loadNpmTasks("grunt-contrib-jshint");
+    grunt.loadNpmTasks('grunt-simple-mocha');
 
     // Default task.
-    grunt.registerTask("default", ["jshint"]);
+    grunt.registerTask("default", ["jshint", "simplemocha"]);
 
 };
