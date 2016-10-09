@@ -35,6 +35,6 @@ To use this SDK, please make sure:
   * You can use environment vars too.
 
     ```sh
-    export API_KEY=011RR5BdHEEF2RNSmha42SDQ6sYRL9TM
+    export BAYONET_API_KEY=011RR5BdHEEF2RNSmha42SDQ6sYRL9TM
     ```
   
