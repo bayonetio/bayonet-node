@@ -16,8 +16,7 @@ To use this SDK, please make sure:
   * You have an API KEY (sandbox and/or live) provided by Bayonet's team.
   * Install the 'bayonet-js-sdk' module on your system
   
-    ```
-    sh
+    ```sh
     npm install bayonet-js-sdk
     ```
   * Add dependency 'bayonet-js-sdk' in your package.json file.
