@@ -78,7 +78,7 @@ Once you have Bayonet's SDK configured, you can call the three APIs with the fol
   * Feedback-historical API
   
     ```js
-    bayonet.api.feedbackHistorical({
+    bayonet.api.feedback_historical({
         "channel": "mpos",
         "type": "transaction",
         "email": "david@gmail.com",

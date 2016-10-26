@@ -131,7 +131,7 @@ describe('Bayonet SDK', function () {
                 api_key: fx.requests.invalid_token
             });
 
-            return bayonet.api.feedbackHistorical(
+            return bayonet.api.feedback_historical(
                 fx.requests.feedback_historical
             ).then(function (r) {
                 expect(true).to.equal(false);
@@ -157,7 +157,7 @@ describe('Bayonet SDK', function () {
                 ).then(function (r) {
                     fx.requests.feedback_historical.transaction_id = fx.requests.feedback.transaction_id;
 
-                    return bayonet.api.feedbackHistorical(
+                    return bayonet.api.feedback_historical(
                         fx.requests.feedback_historical
                     ).then(function (r) {
                         expect(r.reason_code).to.equal('00');
@@ -186,7 +186,7 @@ describe('Bayonet SDK', function () {
 
             fx.requests.feedback_historical.transaction_id = randomstring.generate();
 
-            return bayonet.api.feedbackHistorical(
+            return bayonet.api.feedback_historical(
                 fx.requests.feedback_historical
             ).then(function (r) {
                 fx.reset();

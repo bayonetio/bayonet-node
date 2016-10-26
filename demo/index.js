@@ -1,21 +1,48 @@
 // express configuration
 var express = require('express');
 var app = express();
+var fx = require('node-fixtures');
+var bodyParser = require('body-parser')
 
-// serve public folder
-app.use(express.static(__dirname + '/public'));
+// parse application/json
+app.use(bodyParser.json())
+
+// template engine
+app.set('view engine', 'ejs');
 
 // bayonet sdk
 var bayonet = require('..');
-bayonet.configure({
-    version: 1,
-    api_key: process.env.BAYONET_API_KEY
+
+// demo
+app.get('/', function (req, res) {
+    res.render('index', {
+        consulting: JSON.stringify(fx.requests.consulting),
+        feedback: JSON.stringify(fx.requests.feedback),
+        feedback_historical: JSON.stringify(fx.requests.feedback_historical)
+    });
 });
 
-// consult
-app.get('/consult', function (req, res) {
-  res.send('consult');
-});
+// consulting
+var addApi = function(api) { 
+    app.post('/' + api, function (req, res) {
+        bayonet.configure({
+            version: 1,
+            api_key: req.get('token')
+        });
+
+        bayonet.api[api](
+            req.body
+        ).then(function (r) {
+            res.send(r);
+        }).catch(function (r) {
+            res.send(r.error);
+        });
+    });
+};
+
+addApi('consulting');
+addApi('feedback');
+addApi('feedback_historical');
 
 app.listen(3000, function() {
     console.log('Listening on port 3000');
