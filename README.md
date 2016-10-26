@@ -130,3 +130,9 @@ You can run a demo application with this command:
 ```sh
 cd demo && node index.js
 ```
+
+## Testing
+You can run the test suite with the following command:
+```sh
+grunt
+```
