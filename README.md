@@ -124,3 +124,15 @@ bayonet.api.consulting({
 ```
 
 For a full list of error codes and their messages, please see the "Integration Specs V 1.0" document provided by the Bayonet team.
+
+## Demo
+You can run a demo application with this command:
+```sh
+cd demo && node index.js
+```
+
+## Testing
+You can run the test suite with the following command:
+```sh
+grunt
+```
