@@ -123,4 +123,78 @@ describe('Bayonet SDK', function () {
             });
         });
     });
+
+    describe('#api.feedback_historical', function () {
+        it('should validate api key', function () {
+            bayonet.configure({
+                version: 1,
+                api_key: fx.requests.invalid_token
+            });
+
+            return bayonet.api.feedbackHistorical(
+                fx.requests.feedback_historical
+            ).then(function (r) {
+                expect(true).to.equal(false);
+            }).catch(function (r) {
+                expect(r.error.reason_code).to.equal('11');
+            });
+        });
+
+        it('accept transaction id from feedback api', function () {
+            bayonet.configure({
+                version: 1,
+                api_key: process.env.BAYONET_API_KEY
+            });
+
+            return bayonet.api.consulting(
+                fx.requests.consulting
+            ).then(function (r) {
+                fx.requests.feedback.transaction_id = randomstring.generate();
+                fx.requests.feedback.feedback_api_trans_code = r.feedback_api_trans_code;
+
+                return bayonet.api.feedback(
+                    fx.requests.feedback
+                ).then(function (r) {
+                    fx.requests.feedback_historical.transaction_id = fx.requests.feedback.transaction_id;
+
+                    return bayonet.api.feedbackHistorical(
+                        fx.requests.feedback_historical
+                    ).then(function (r) {
+                        expect(r.reason_code).to.equal('00');
+                        expect(
+                            fx.requests.feedback_historical.transaction_id
+                        ).to.equal(fx.requests.feedback.transaction_id);
+                        fx.reset();
+                    }).catch(function (r) {
+                        fx.reset();
+                        expect(true).to.equal(false);
+                    });
+                }).catch(function (r) {
+                    fx.reset();
+                    expect(true).to.equal(false);
+                });
+            }).catch(function (r) {
+                expect(true).to.equal(false);
+            });
+        });
+
+        it('accept any transaction_id', function () {
+            bayonet.configure({
+                version: 1,
+                api_key: process.env.BAYONET_API_KEY
+            });
+
+            fx.requests.feedback_historical.transaction_id = randomstring.generate();
+
+            return bayonet.api.feedbackHistorical(
+                fx.requests.feedback_historical
+            ).then(function (r) {
+                fx.reset();
+                expect(r.reason_code).to.equal('00');
+            }).catch(function (r) {
+                fx.reset();
+                expect(true).to.equal(false);
+            });
+        });
+    });
 });
