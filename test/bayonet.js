@@ -65,4 +65,62 @@ describe('Bayonet SDK', function () {
             });
         });
     });
+
+    describe('#api.feedback', function () {
+        it('should validate api key', function () {
+            bayonet.configure({
+                version: 1,
+                api_key: fx.requests.invalid_token
+            });
+
+            return bayonet.api.feedback(
+                fx.requests.feedback
+            ).then(function (r) {
+                expect(true).to.equal(false);
+            }).catch(function (r) {
+                expect(r.error.reason_code).to.equal('11');
+            });
+        });
+
+        it('should validate feedback_api_trans_code', function () {
+            bayonet.configure({
+                version: 1,
+                api_key: process.env.BAYONET_API_KEY
+            });
+
+            return bayonet.api.feedback(
+                fx.requests.feedback
+            ).then(function (r) {
+                expect(true).to.equal(false);
+            }).catch(function (r) {
+                expect(r.error.reason_code).to.equal('87');
+            });
+        });
+
+        it('should accept transaction feedback', function () {
+            bayonet.configure({
+                version: 1,
+                api_key: process.env.BAYONET_API_KEY
+            });
+
+            return bayonet.api.consulting(
+                fx.requests.consulting
+            ).then(function (r) {
+                fx.requests.feedback.transaction_id = randomstring.generate();
+                fx.requests.feedback.feedback_api_trans_code = r.feedback_api_trans_code;
+
+                return bayonet.api.feedback(
+                    fx.requests.feedback
+                ).then(function (r) {
+                    fx.reset();
+                    expect(r.reason_code).to.equal('00');
+                }).catch(function (r) {
+                    fx.reset();
+                    expect(true).to.equal(false);
+                });
+            }).catch(function (r) {
+                expect(true).to.equal(false);
+            });
+        });
+    });
 });
