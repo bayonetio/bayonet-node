@@ -17,7 +17,7 @@ To use this SDK, please make sure:
   * Install the 'bayonet-js-sdk' module on your system
   
     ```sh
-    npm install bayonet-js-sdk
+    npm install git+https://bitbucket.org/imran_bayonet/bayonet-nodejs.git
     ```
   * Add dependency 'bayonet-js-sdk' in your package.json file.
   * Require 'bayonet-js-sdk' in your file
