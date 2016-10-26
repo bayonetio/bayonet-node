@@ -12,14 +12,15 @@ app.set('view engine', 'ejs');
 
 // bayonet sdk
 var bayonet = require('..');
+var apis = ['consulting', 'feedback', 'feedback_historical']
 
 // demo
 app.get('/', function (req, res) {
-    res.render('index', {
-        consulting: JSON.stringify(fx.requests.consulting),
-        feedback: JSON.stringify(fx.requests.feedback),
-        feedback_historical: JSON.stringify(fx.requests.feedback_historical)
-    });
+    var data = {};
+    for(var i in apis)
+        data[apis[i]] = JSON.stringify(fx.requests[apis[i]]);
+
+    res.render('index', data);
 });
 
 // consulting
@@ -40,9 +41,8 @@ var addApi = function(api) {
     });
 };
 
-addApi('consulting');
-addApi('feedback');
-addApi('feedback_historical');
+for(var i in apis)
+    addApi(apis[i]);
 
 app.listen(3000, function() {
     console.log('Listening on port 3000');
