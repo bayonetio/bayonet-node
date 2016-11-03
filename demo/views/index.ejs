@@ -55,14 +55,14 @@
                         token: $('#key').val()
                     }
                 }).done(function(data) {
-                    $('#response').html(
+                    $('#response').val(
                         JSON.stringify(data, null, 4)
                     );
                 });
             });
 
-            $('#api').change(function () {
-                $('#request').html(
+            $('#api').on('change', function () {
+                $('#request').val(
                     JSON.stringify(
                         JSON.parse(
                             examples[$('#api').val()]
