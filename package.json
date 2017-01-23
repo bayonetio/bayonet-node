@@ -1,6 +1,6 @@
 {
   "name": "bayonet-js-sdk",
-  "version": "1.0.1",
+  "version": "0.0.0",
   "description": "A Javascript SDK for integrating with the Bayonet API v1",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "verification"
   ],
   "author": "luis@vordem.mx",
-  "license": "",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vordem/bayonet-js-sdk/issues"
   },
