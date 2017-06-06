@@ -197,4 +197,21 @@ describe('Bayonet SDK', function () {
             });
         });
     });
+
+    describe('#api.get_fingerprint_data', function () {
+        it('should validate bayonet fingerprint token', function () {
+            bayonet.configure({
+                version: 1,
+                api_key: fx.requests.invalid_token
+            });
+
+            return bayonet.api.get_fingerprint_data(
+                fx.requests.get_fingerprint_data
+            ).then(function (r) {
+                expect(true).to.equal(false);
+            }).catch(function (r) {
+                expect(r.error.status).to.equal('Error: Invalid value for bayonet_fingerprint_token');
+            });
+        });
+    });
 });

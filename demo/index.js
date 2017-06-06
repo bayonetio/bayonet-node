@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 
 // bayonet sdk
 var bayonet = require('..');
-var apis = ['consulting', 'feedback', 'feedback_historical']
+var apis = ['consulting', 'feedback', 'feedback_historical', 'get_fingerprint_data']
 
 // demo
 app.get('/', function (req, res) {

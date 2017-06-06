@@ -4,6 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Bayonet NodeJS demo</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://bayonet.io/assets/favicon.ico">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
@@ -16,6 +17,7 @@
                 <option value="consulting">Consulting</option>
                 <option value="feedback">Feedback</option>
                 <option value="feedback_historical">Feedback historical</option>
+                <option value="get_fingerprint_data">Get fingerprint data</option>
             </select>
             <input id="key" class="form-control" type="text" placeholder="API Key" />
             <button id="go" class="btn btn-default" type="submit">Go</button>
@@ -40,7 +42,8 @@
         var examples = {
             consulting: '<%- consulting %>',
             feedback: '<%- feedback %>',
-            feedback_historical: '<%- feedback_historical %>'
+            feedback_historical: '<%- feedback_historical %>',
+            get_fingerprint_data: '<%- get_fingerprint_data %>'
         };
 
         $(function() {
