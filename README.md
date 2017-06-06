@@ -108,6 +108,13 @@ Once you have Bayonet's SDK configured, you can call the three APIs with the fol
         ...
     });
     ```
+  * Get-fingerprint-data API
+  
+    ```js
+    bayonet.api.get_fingerprint_data({
+        "bayonet_fingerprint_token": "fingerprint-token-generated-by-JS-snipppet"
+    });
+    ```    
  
 ## Success and error handling
 Bayonet's SDK supports [Promises](https://www.promisejs.org/) for success and error handling
