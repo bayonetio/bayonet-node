@@ -16,7 +16,7 @@ module.exports = function (grunt) {
                 }
             }
         },
-        simplemocha: {
+        mochaTest: {
             all: {
                 src: ['test/**/*.js', '**/*.spec.js']
             }
@@ -24,10 +24,10 @@ module.exports = function (grunt) {
     });
 
     // Load grunt tasks from npm packages
-    grunt.loadNpmTasks("grunt-contrib-jshint");
-    grunt.loadNpmTasks('grunt-simple-mocha');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-mocha-test');
 
     // Default task.
-    grunt.registerTask("default", ["jshint", "simplemocha"]);
+    grunt.registerTask("default", ["jshint", "mochaTest"]);
 
 };

@@ -1,6 +1,6 @@
 {
   "name": "bayonet-node",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "A Javascript SDK for integrating with the Bayonet API",
   "main": "index.js",
   "scripts": {
@@ -24,25 +24,28 @@
   "author": "Bayonet <support@bayonet.io> (https://bayonet.io/)",
   "contributors": [
     "Luis Herrada <luis@vordem.mx>",
-    "Imran Arshad <imran@bayonet.io>"
+    "Imran Arshad <imran@bayonet.io>",
+    "Ivan Lugo <ivan.lugo@bayonet.io"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Bayonet-Client/bayonet-node/issues"
   },
   "homepage": "https://github.com/Bayonet-Client/bayonet-node",
+  "engines": {
+    "node": "^8.3 || ^9.* || ^10.* || ^11.* || ^12.* || >=13.7.*"
+  },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.3.0"
+    "chai": "^4.3.4",
+    "grunt": "^1.4.1",
+    "grunt-contrib-jshint": "^3.0.0",
+    "grunt-mocha-test": "^0.13.3",
+    "mocha": "^7"
   },
   "dependencies": {
-    "chai": "^3.5.0",
-    "ejs": "^2.5.2",
-    "grunt-simple-mocha": "^0.4.1",
-    "lodash": "^4.16.4",
+    "dotenv": "^10.0.0",
+    "lodash": "^4.17.21",
     "node-fixtures": "0.0.1",
-    "randomstring": "^1.1.5",
-    "request": "^2.75.0",
-    "request-promise": "^4.1.1"
+    "randomstring": "^1.2.1"
   }
 }

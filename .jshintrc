@@ -22,7 +22,7 @@
     "debug": false,
     "devel": false,
 
-    "es5": true,
+    "esversion": 6,
     "strict": true,
     "globalstrict": false,
 
